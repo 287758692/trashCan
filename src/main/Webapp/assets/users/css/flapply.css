@@ -1,0 +1,202 @@
+html, body {
+    background-color:#F2F5F7;
+    font-size: 12px;
+    font-family: Arial, Lucida, Verdana, "microsoft yahei", Helvetica, sans-serif;
+    color:#8b8889;
+}
+input{
+    height:16px;
+    border: 1px solid #5f799d;
+    border:none;
+}
+.auditInfo{
+    border:1px solid #5f799d;
+}
+.auditInfo2{
+    border:2px solid #5f799d;
+}
+.auditInfo tr{
+    border:1px solid #5f799d;
+}
+.auditInfo td{
+    border:1px solid #5f799d;
+}
+select{
+    width:20%;
+    height:20px;
+    border: 1px solid #5f799d;
+}
+a{
+    text-decoration:none;
+    cursor:pointer;
+}
+.apply-main{
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+    height:auto;
+}
+.text{
+    font-size:18px;
+    color:#868585;
+    display:block;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.textline{
+    width:100%;
+    color:#969b9c;
+    border-bottom-style:dotted;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+}
+.a{
+    width:auto;
+    height:36px;
+    margin-left:85px;
+    overflow:hidden;
+}
+.a span{
+    display:block;
+    float:left;
+    margin-top:5px;
+    margin-right:10px;
+}
+.a-text{
+    color:#7d7d7d;
+    font-size:14px;
+}
+
+.from{
+    margin-top:20px;
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.fromtitle{
+    font-size:15px;
+    color:#416491;
+    margin-left:10px;
+}
+.fromline{
+    width:200px;
+    margin-left:0;
+    color:#63ab5c;
+}
+.fromtext{
+    width:150px;
+    text-align:right;
+    color:#8b8889;
+}
+.check{
+    width:20px;
+    border:none;
+}
+.textmian span{
+    margin-right:60px;
+}
+.remind{
+    width:250px;
+    text-align:left;
+    color:#FF0000;
+}
+.td_space{
+    colspan:6;
+    height:15px;
+}
+.textmian{
+    text-align:left;
+}
+.td_name{
+    width:98%;
+    height:100%;
+}
+.td_date{
+    width:150px;
+    text-align:center;
+}
+.td_nametd{
+    width:160px;
+    text-align:center;
+}
+.td_nametd2{
+    width:200px;
+    text-align:center;
+}
+.td_nametd3{
+    width:300px;
+    text-align:center;
+}
+.td_nametd4{
+    width:400px;
+    text-align:center;
+}
+.td_nametd5{
+    width:500px;
+    text-align:center;
+}
+.td_nametd6{
+    width:600px;
+    text-align:center;
+}
+.td_nametd8{
+    width:800px;
+    text-align:center;
+}
+.td_nametd9{
+    width:900px;
+    text-align:center;
+}
+.td_nametd10{
+    width:1000px;
+    text-align:center;
+}
+.td_nametd12{
+    text-align:center;
+}
+.td_inputdate{
+    width:100%;
+}
+.td_peinae{
+    width:80px;
+}
+.w_text{
+    width:50px;
+    height:20px;
+    border-bottom:1px solid #000;
+}
+.w_text2{
+    width:100px;
+    height:20px;
+    border-bottom:1px solid #000;
+}
+.car_text{
+    width:100px;
+    height:20px;
+    border:none;
+}
+.red{
+    color:#FF0000;
+}
+.house_select{
+    width:70%;
+}
+.house_select1{
+    width:70%;
+    height:15px;
+}
+.house_select2{
+    width:20%;
+    height:15px;
+}
+.house_remark{
+    width:20%;
+    display:none;
+    float:right;
+    height:100%;
+    margin-right:60px;
+    border-bottom:1px solid #000;
+}
