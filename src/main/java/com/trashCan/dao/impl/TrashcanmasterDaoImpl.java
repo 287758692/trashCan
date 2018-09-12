@@ -13,7 +13,7 @@ import java.util.Map;
 public class TrashcanmasterDaoImpl<Trashcanmaster> extends BaseDaoImpl<Trashcanmaster> implements TrashcanmasterDao<Trashcanmaster>{
 
     @Override
-    public List<Map<String, Object>> getList(String lat,String Lng,String code) {
+    public List<Map<String, Object>> getList(String city,String code) {
         String sql ="select "
                 + "trashcanmaster.id,"
                 + "trashcanmaster.code,"
@@ -26,11 +26,8 @@ public class TrashcanmasterDaoImpl<Trashcanmaster> extends BaseDaoImpl<Trashcanm
                 + "trashcanmaster.status "
                 + "from trashcanmaster "
                 + "where trashcanmaster.status > 0 ";
-        if (lat!=null && lat!="") {
-            sql += " and lat between " + lat+ "-0.01 and "+lat+ "+0.01";
-        }
-        if (Lng!=null && Lng!="") {
-            sql += " and Lng between " + Lng+ "-0.01 and "+Lng+ "+0.01";
+        if (city!=null && city!="") {
+            sql += " and address like '%" +city+ "%'";
         }
         if (code!=null && code!="") {
             sql += " and code like '%" +code+ "%'";

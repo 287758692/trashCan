@@ -5,8 +5,6 @@
     <link href="${ctx}/assets/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
 
 	<link href="${ctx}/assets/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/assets/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
-    <link href="${ctx}/assets/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
 
     <link href="${ctx}/assets/global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
     <link href="${ctx}/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />

@@ -32,9 +32,9 @@ public class TrashcanmasterServiceImpl implements TrashcanmasterService {
 	}
 
 	@Override
-	public Map<String, Object> getList(String lat,String Lng,String code) {
+	public Map<String, Object> getList(String city,String code) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("rows", trashcanmasterDao.getList(lat,Lng,code));
+		result.put("rows", trashcanmasterDao.getList(city,code));
 		return result;
 	}
 }

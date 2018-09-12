@@ -74,7 +74,7 @@ function init(position) {
         url : ctx+"/trashcanmasterController/trashCanMap",
         type : "post",
         dataType : "json",
-        data : {Lat:Lat,Lng:Lng},
+        data : {city:city},
         success:function(result){
             //添加垃圾桶标记
             if(result.rows!=null){

@@ -916,7 +916,22 @@
                             c.jqXHR = e, c.response = {}, t._showError(r, c, "filedeleteerror"), f.removeClass("file-uploading"), o()
                         }
                     }, t.ajaxDeleteSettings), t._handler(r, "click", function () {
-                        return t._validateMinCount() ? void e.ajax(d) : !1
+                        // return t._validateMinCount() ? void e.ajax(d) : !1
+                        if(!t._validateMinCount()){
+                            return !1;
+                        }
+                        swal({title: '',
+                            text: "确认删除图片?删除后不可恢复。",
+                            type: 'warning',
+                            showCancelButton: true,
+                            closeOnConfirm: true,
+                            cancelButtonText:"取消",
+                            confirmButtonText: '确认',
+                            confirmButtonColor:"#ec6c62"
+                        },function (){
+                            return void e.ajax(d);
+                            location.reload();
+                        })
                     })
                 }
             })

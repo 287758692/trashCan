@@ -42,6 +42,7 @@
                 <div class="portlet-body">
 	                <form class="form-horizontal" id="trashcanAddForm" name="trashcanAddForm" >
 	                    <div class="form-body">
+							<input type="hidden" class="form-control" id="id" name="id">
 	                        <br>
 	                        <div class="form-group">
 	                        	<div class="col-md-2"></div>
@@ -131,95 +132,11 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片1</label>
+								<label class="control-label col-md-1"> 上传图片</label>
 								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div id="preview1" class="fileinput-preview thumbnail" data-trigger="fileinput" > </div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic1File" name="file" onchange="fileUploadBtn('pic1File','pic1')">
-												<input type="hidden" class="form-control" id="pic1" name="pic1" >
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
+									<input type="file" name="picFile" id="picFile" multiple class="file-loading" />
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片2</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div id="preview2" class="fileinput-preview thumbnail" data-trigger="fileinput" > </div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic2File" name="file" onchange="fileUploadBtn('pic2File','pic2')">
-												<input type="hidden" class="form-control" id="pic2" name="pic2" >
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片3</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div id="preview3" class="fileinput-preview thumbnail" data-trigger="fileinput" > </div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic3File" name="file" onchange="fileUploadBtn('pic3File','pic3')">
-												<input type="hidden" class="form-control" id="pic3" name="pic3" >
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片4</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div id="preview4" class="fileinput-preview thumbnail" data-trigger="fileinput" > </div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic4File" name="file" onchange="fileUploadBtn('pic4File','pic4')">
-												<input type="hidden" class="form-control" id="pic4" name="pic4" >
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片5</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div id="preview5" class="fileinput-preview thumbnail" data-trigger="fileinput" > </div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic5File" name="file" onchange="fileUploadBtn('pic5File','pic5')">
-												<input type="hidden" class="form-control" id="pic5" name="pic5" >
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-
 	                    </div>
 	                    <div class="form-actions">
 	                        <div class="row">
@@ -238,19 +155,6 @@
     <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->
-<script type="text/javascript">
-    var width = $("#code").width();
-    document.getElementById('preview1').style.width = width + 'px';
-    document.getElementById('preview1').style.height = width + 'px';
-    document.getElementById('preview2').style.width = width + 'px';
-    document.getElementById('preview2').style.height = width + 'px';
-    document.getElementById('preview3').style.width = width + 'px';
-    document.getElementById('preview3').style.height = width + 'px';
-    document.getElementById('preview4').style.width = width + 'px';
-    document.getElementById('preview4').style.height = width + 'px';
-    document.getElementById('preview5').style.width = width + 'px';
-    document.getElementById('preview5').style.height = width + 'px';
-</script>
 </body>
 	</c:when>
 	<c:otherwise>

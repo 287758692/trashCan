@@ -47,6 +47,7 @@
                 <div class="portlet-body">
 	                <form class="form-horizontal" id="trashcanAddForm" name="trashcanAddForm" >
 	                    <div class="form-body">
+                            <input type="hidden" class="form-control" id="id" name="id">
 	                        <br>
 	                        <div class="form-group">
 	                        	<div class="col-md-2"></div>
@@ -138,7 +139,7 @@
 								<div class="col-md-2"></div>
 								<label class="control-label col-md-1"> 上传图片</label>
 								<div class="col-md-3">
-									<div id="myId" class="dropzone dropzone-file-area" style="width: 375px; height: auto;"></div>
+									<input type="file" name="picFile" id="picFile" multiple class="file-loading" />
 								</div>
 							</div>
 	                    </div>
@@ -160,9 +161,5 @@
 </div>
 <!-- END CONTAINER -->
 <%@ include file="common/pageFooter.jsp" %>
-<script type="text/javascript">
-    var width = $("#code").width();
-    document.getElementById('myId').style.width = width + 'px';
-</script>
 </body>
 </html>

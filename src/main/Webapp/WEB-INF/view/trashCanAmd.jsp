@@ -18,6 +18,11 @@
 	<script type="text/javascript">
 		var ctx = "${ctx}";
         var type = "${type}";
+        var pic1 = "${pic1}";
+        var pic2 = "${pic2}";
+        var pic3 = "${pic3}";
+        var pic4 = "${pic4}";
+        var pic5 = "${pic5}";
 	</script>
 	
 	<%@ include file="common/importCss.jsp"%>
@@ -138,102 +143,9 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片1</label>
+								<label class="control-label col-md-1"> 上传图片</label>
 								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 375px; height: 375px; line-height: 375px;">
-											<img src="${ctx}Upload/${pic1}" />
-										</div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic1File" name="file" onchange="fileUploadBtn('pic1File','pic1')">
-												<input type="hidden" class="form-control" id="pic1" name="pic1" value="${pic1}">
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片2</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 375px; height: 375px; line-height: 375px;">
-											<img src="${ctx}Upload/${pic2}" />
-										</div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic2File" name="file" onchange="fileUploadBtn('pic2File','pic2')">
-												<input type="hidden" class="form-control" id="pic2" name="pic2" value="${pic2}">
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片3</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 375px; height: 375px; line-height: 375px;">
-											<img src="${ctx}Upload/${pic3}" />
-										</div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic3File" name="file" onchange="fileUploadBtn('pic3File','pic3')">
-												<input type="hidden" class="form-control" id="pic3" name="pic3" value="${pic3}">
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片4</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 375px; height: 375px; line-height: 375px;">
-											<img src="${ctx}Upload/${pic4}" />
-										</div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic4File" name="file" onchange="fileUploadBtn('pic4File','pic4')">
-												<input type="hidden" class="form-control" id="pic4" name="pic4" value="${pic4}">
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-2"></div>
-								<label class="control-label col-md-1"> 图片5</label>
-								<div class="col-md-3">
-									<div class="fileinput fileinput-new" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 375px; height: 375px; line-height: 375px;">
-											<img src="${ctx}Upload/${pic5}" />
-										</div>
-										<div>
-											<span class="btn red btn-outline btn-file">
-												<span class="fileinput-new"> 选择图片 </span>
-												<span class="fileinput-exists"> 修改 </span>
-												<input type="hidden"><input type="file" id ="pic5File" name="file" onchange="fileUploadBtn('pic5File','pic5')">
-												<input type="hidden" class="form-control" id="pic5" name="pic5" value="${pic5}">
-											</span>
-											<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
-										</div>
-									</div>
+									<input type="file" name="picFile" id="picFile" multiple class="file-loading" />
 								</div>
 							</div>
 	                    </div>

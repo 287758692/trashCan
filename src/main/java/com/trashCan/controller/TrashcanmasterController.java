@@ -63,9 +63,8 @@ public class TrashcanmasterController {
 	public @ResponseBody
 	Object trashCanMap(HttpServletRequest request) throws IOException {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		String lat = request.getParameter("lat");
-		String Lng = request.getParameter("Lng");
-		resultMap = trashcanmasterService.getList(lat,Lng,"");
+		String city = request.getParameter("city");
+		resultMap = trashcanmasterService.getList(city,"");
 		String jsonString = objectMapper.writeValueAsString(resultMap.get("rows"));
 		String json = "{\"rows\":" + jsonString + "}";
 		log.info("json:"+json);
@@ -83,7 +82,7 @@ public class TrashcanmasterController {
 	Object trashCanList(HttpServletRequest request) throws IOException {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		String code = request.getParameter("code");
-		resultMap = trashcanmasterService.getList("","",code);
+		resultMap = trashcanmasterService.getList("",code);
 		String jsonString = objectMapper.writeValueAsString(resultMap.get("rows"));
 		String json = "{\"rows\":" + jsonString + "}";
 		log.info("json:"+json);
@@ -127,11 +126,6 @@ public class TrashcanmasterController {
 		trashcanmaster.setLng(request.getParameter("lng"));
 		trashcanmaster.setAddress(request.getParameter("address"));
 		trashcanmaster.setUseDate(request.getParameter("useDate"));
-		trashcanmaster.setPic1(request.getParameter("pic1"));
-		trashcanmaster.setPic2(request.getParameter("pic2"));
-		trashcanmaster.setPic3(request.getParameter("pic3"));
-		trashcanmaster.setPic4(request.getParameter("pic4"));
-		trashcanmaster.setPic5(request.getParameter("pic5"));
 		trashcanmaster.setStatus(1);
 		trashcanmaster.setCrtOptr(User.getUserId());
 		trashcanmaster.setCrtTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
@@ -144,6 +138,7 @@ public class TrashcanmasterController {
 		} else {
 			resultMap.put("isSuc", true);
 			resultMap.put("errMsg", "新增成功");
+			resultMap.put("id", result);
 		}
 		return resultMap;
 	}
@@ -197,11 +192,6 @@ public class TrashcanmasterController {
 		trashcanmaster.setLng(request.getParameter("lng"));
 		trashcanmaster.setAddress(request.getParameter("address"));
 		trashcanmaster.setUseDate(request.getParameter("useDate"));
-		trashcanmaster.setPic1(request.getParameter("pic1"));
-		trashcanmaster.setPic2(request.getParameter("pic2"));
-		trashcanmaster.setPic3(request.getParameter("pic3"));
-		trashcanmaster.setPic4(request.getParameter("pic4"));
-		trashcanmaster.setPic5(request.getParameter("pic5"));
 		trashcanmaster.setStatus(1);
 		trashcanmaster.setCrtOptr(User.getUserId());
 		trashcanmaster.setCrtTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));

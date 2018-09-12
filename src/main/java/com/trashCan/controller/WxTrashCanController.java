@@ -54,9 +54,8 @@ public class WxTrashCanController {
 	public @ResponseBody
 	Object trashCanList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		String lat = request.getParameter("lat");
-		String Lng = request.getParameter("Lng");
-		resultMap = trashcanmasterService.getList(lat,Lng,"");
+		String city = request.getParameter("city");
+		resultMap = trashcanmasterService.getList(city,"");
 		String jsonString = objectMapper.writeValueAsString(resultMap.get("rows"));
 		String json = "{\"rows\":" + jsonString + "}";
 		log.info("json:"+json);

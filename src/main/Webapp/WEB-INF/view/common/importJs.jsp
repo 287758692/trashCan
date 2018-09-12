@@ -12,9 +12,6 @@
 <script src="${ctx}/assets/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="${ctx}/assets/global/js/jquery.blockui.min.js" type="text/javascript"></script>
 
-<script src="${ctx}/assets/dropzone/dropzone.min.js" type="text/javascript"></script>
-<script src="${ctx}/assets/dropzone/form-dropzone.min.js" type="text/javascript"></script>
-
 <script src="${ctx}/assets/global/js/app.min.js" type="text/javascript"></script>
 <script src="${ctx}/assets/layout/scripts/layout.min.js" type="text/javascript"></script>
 

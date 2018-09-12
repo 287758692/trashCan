@@ -3,6 +3,8 @@ $(document).ready(function () {
     combobox();
 	//表单校验及提交
 	confirmForm();
+    //多文件上传
+    fileUploadBtn();
 });
 
 function combobox(){
@@ -53,6 +55,9 @@ function confirmForm() {
               data: param,
               success:function(data){
                   if(data.isSuc){
+                      //更新图片
+                      $("#picFile").fileinput("upload");
+                      //初始化FORM
                 	  document.getElementById("trashCanAmdForm").reset();
                       swal({title: '成功',
                 		  text: data.errMsg,
@@ -109,24 +114,57 @@ function confirmForm() {
     });
   }
 
-function fileUploadBtn(file,id){
-
-    var files = $("#"+file).val();
-    var strFileName=files.replace(/^.+?\\([^\\]+?)(\.[^\.\\]*?)?$/gi,"$1");  //正则表达式获取文件名，不带后缀
-    var FileExt=files.replace(/.+\./,"");   //正则表达式获取后缀
-    var fileName = strFileName+"."+FileExt;
-
-    $.ajaxFileUpload({
-        url : ctx+"/upload/file",
-        secureuri : false,
-        fileElementId : file,
-        type : 'post',
-        dataType : 'json',
-        data:{
-            "filename":fileName,
+function fileUploadBtn(){
+    $("#picFile").fileinput('destroy');
+    var path = [];
+    var con = [];
+    if(pic1 !== ""){
+        path[1] = ctx+"Upload/"+pic1;
+        con[1] = {caption: pic1, width: "170px", url: ctx+"/upload/deleteFile?id="+document.getElementById("id").value+"&path="+pic1, key: pic1};
+    };
+    if(pic2 !== ""){
+        path[2] = ctx+"Upload/"+pic2;
+        con[2] = {caption: pic2, width: "170px", url: ctx+"/upload/deleteFile?id="+document.getElementById("id").value+"&path="+pic2, key: pic2};
+    };
+    if(pic3 !== ""){
+        path[3] = ctx+"Upload/"+pic3;
+        con[3] = {caption: pic3, width: "170px", url: ctx+"/upload/deleteFile?id="+document.getElementById("id").value+"&path="+pic3, key: pic3};
+    };
+    if(pic4 !== ""){
+        path[4] = ctx+"Upload/"+pic4;
+        con[4] = {caption: pic4, width: "170px", url: ctx+"/upload/deleteFile?id="+document.getElementById("id").value+"&path="+pic4, key: pic4};
+    };
+    if(pic5 !== ""){
+        path[5] = ctx+"Upload/"+pic5;
+        con[5] = {caption: pic5, width: "170px", url: ctx+"/upload/deleteFile?id="+document.getElementById("id").value+"&path="+pic5, key: pic5};
+    };
+    $("#picFile").fileinput({
+        language : 'zh',
+        uploadUrl : ctx+"/upload/file",
+        uploadAsync:false,                             //false 同步上传，
+        allowedFileExtensions:  ["jpg", "jpeg", "gif", "png","bmp"],//接收的文件后缀
+        showUpload: false, //是否显示上传按钮
+        showRemove : false, //显示移除按钮
+        showPreview : true, //是否显示预览
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式
+        dropZoneEnabled: true,//是否显示拖拽区域
+        maxFileCount: 5, //表示允许同时上传的最大文件个数
+        maxFileSize: 1024*10,//单位为kb，如果为0表示不限制文件大小
+        enctype: 'multipart/form-data',
+        validateInitialCount:true,
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        layoutTemplates:{
+            // actionDelete:"",
+            actionUpload:"",
         },
-        success : function(data){
-            $("#"+id).val(data.fileName);
-        }
+        uploadExtraData: function() {   //额外参数的关键点
+            return {'id':document.getElementById("id").value};
+        },
+        overwriteInitial: false,
+        initialPreviewAsData: true,
+        initialPreview: path,
+        initialPreviewConfig: con,
     });
 }

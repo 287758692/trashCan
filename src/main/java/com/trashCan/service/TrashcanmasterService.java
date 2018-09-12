@@ -14,6 +14,6 @@ public interface TrashcanmasterService {
     
     public Trashcanmaster getTrashcanmaster(Integer Id);
 
-    public Map<String, Object> getList(String lat,String Lng,String code);
+    public Map<String, Object> getList(String city,String code);
 
 }

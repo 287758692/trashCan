@@ -72,10 +72,10 @@ function init(position) {
     var info = new qq.maps.InfoWindow({ map: map });
     //获取垃圾桶坐标
     $.ajax({
-        url : ctx+"/WxTrashCanController/trashCanMap",
+        url : ctx+"/WxTrashCanController/trashCanList",
         type : "post",
         dataType : "json",
-        data : {Lat:Lat,Lng:Lng},
+        data : {city:city},
         success:function(result){
             //添加垃圾桶标记
             if(result.rows!=null){

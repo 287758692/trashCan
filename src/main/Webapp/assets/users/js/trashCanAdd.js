@@ -1,12 +1,10 @@
-var num = 0;
-var arr = new Array();
 $(document).ready(function () {
     //下拉框初始化
     combobox();
 	//表单校验及提交
 	confirmForm();
-	//图片上传
-    fileUpload();
+    //多文件上传
+    fileUploadBtn();
 });
 
 function combobox(){
@@ -44,24 +42,28 @@ function confirmForm() {
     $("#trashcanAddForm").validate({
       submitHandler : function() {  //验证通过后的执行方法
           //当前的form通过ajax方式提交（用到jQuery.Form文件）
-          var param = $("#trashcanAddForm").serialize() +"&pic1="+arr[1]+"&pic2="+arr[2]+"&pic3="+arr[3]+"&pic4="+arr[4]+"&pic5="+arr[5];
+          var param = $("#trashcanAddForm").serialize();
           $.ajax({
               url : ctx+"/trashcanmasterController/trashCanAddConfirm",
               type : "post",
               dataType : "json",
               data: param,
               success:function(data){
+                  document.getElementById("id").value = data.id;
                   if(data.isSuc){
-                	  document.getElementById("trashcanAddForm").reset();
+                      //更新图片
+                      $("#picFile").fileinput("upload");
+                      //初始化FORM
+                      document.getElementById("trashcanAddForm").reset();
                       swal({title: '成功',
-                		  text: data.errMsg,
-                		  type: 'success',
-                		  confirmButtonText: '确定',
+                          text: data.errMsg,
+                          type: 'success',
+                          confirmButtonText: '确定',
                       },function(){
-                    	  history.go(-1);
-                      }); 
+                          history.go(-1);
+                      });
                   }else{
-                  	swal("失败", data.errMsg, "error"); 
+                  	swal("数据失败", data.errMsg, "error");
                   }
                 }
               });
@@ -86,29 +88,33 @@ function confirmForm() {
         $(element).siblings('.form-control').removeClass('border-red');
         $(element).remove();
       }
-    }).oncl;
+    });
   }
-function fileUpload(){
-    $("#myId").dropzone({
-        url: ctx+"/upload/file",
-        method: 'post',
-        maxFiles:5,
-        maxFilesize: 10,
-        filesizeBase: 1024,
-        addRemoveLinks: true,
-        acceptedFiles: ".jpg,.jpeg,.png,.gif",//支持的格式
-        autoProcessQueue:false,
-        dictDefaultMessage:'点击上传',
-        dictMaxFilesExceeded: "您最多只能上传5个文件！",
-        dictResponseError: '文件上传失败!',
-        dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg。",
-        dictFileTooBig:"文件过大上传文件最大支持.",
-        dictRemoveFile: "删除",
-        dictCancelUploadConfirmation: "取消",
-        success: function(file,data) {
-            var v = JSON.parse(data);
-            num = num + 1;
-            arr[num] = v.fileName;
+
+function fileUploadBtn(){
+    $("#picFile").fileinput({
+        language : 'zh',
+        uploadUrl : ctx+"/upload/file",
+        uploadAsync:false,                             //false 同步上传，
+        allowedFileExtensions:  ["jpg", "jpeg", "gif", "png","bmp"],//接收的文件后缀
+        showUpload: false, //是否显示上传按钮
+        showRemove : false, //显示移除按钮
+        showPreview : true, //是否显示预览
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式
+        dropZoneEnabled: true,//是否显示拖拽区域
+        maxFileCount: 5, //表示允许同时上传的最大文件个数
+        maxFileSize: 1024*10,//单位为kb，如果为0表示不限制文件大小
+        enctype: 'multipart/form-data',
+        validateInitialCount:true,
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        layoutTemplates:{
+            // actionDelete:"",
+            actionUpload:"",
+        },
+        uploadExtraData: function() {   //额外参数的关键点
+            return {'id':document.getElementById("id").value};
         }
     });
 }

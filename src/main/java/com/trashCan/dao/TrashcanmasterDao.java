@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface TrashcanmasterDao<T> extends BaseDao<T>{
 
-    public List<Map<String, Object>> getList(String lat,String Lng,String code);
+    public List<Map<String, Object>> getList(String city,String code);
 
 }
