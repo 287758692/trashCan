@@ -37,4 +37,12 @@ public class TrashcanmasterServiceImpl implements TrashcanmasterService {
 		result.put("rows", trashcanmasterDao.getList(city,code));
 		return result;
 	}
+
+	@Override
+	public Map<String, Object> getPageList(Integer pageNumber,Integer pageSize,String code) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("total", trashcanmasterDao.getPageList(pageNumber,pageSize,code,false).size());
+		result.put("rows", trashcanmasterDao.getPageList(pageNumber,pageSize,code,true));
+		return result;
+	}
 }

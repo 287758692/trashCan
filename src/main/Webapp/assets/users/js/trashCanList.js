@@ -200,7 +200,7 @@ function initTable(){
             var param = {
                 pageNumber: params.pageNumber,
                 pageSize: params.pageSize,
-                userName : $("#code").val()
+                code : $("#code").val()
             };
             return param;
         },

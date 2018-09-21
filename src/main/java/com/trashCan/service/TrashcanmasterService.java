@@ -16,4 +16,5 @@ public interface TrashcanmasterService {
 
     public Map<String, Object> getList(String city,String code);
 
+    public Map<String, Object> getPageList(Integer pageNumber, Integer pageSize, String code);
 }

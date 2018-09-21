@@ -44,6 +44,8 @@ function getTypeInfo(){
 }
 
 function confirmForm() {
+    //初始化FORM
+    document.getElementById("trashCanAmdForm").reset();
     $("#trashCanAmdForm").validate({
       submitHandler : function() {  //验证通过后的执行方法
           //当前的form通过ajax方式提交（用到jQuery.Form文件）
@@ -57,15 +59,15 @@ function confirmForm() {
                   if(data.isSuc){
                       //更新图片
                       $("#picFile").fileinput("upload");
-                      //初始化FORM
-                	  document.getElementById("trashCanAmdForm").reset();
-                      swal({title: '成功',
-                		  text: data.errMsg,
-                		  type: 'success',
-                		  confirmButtonText: '确定',
-                      },function(){
-                    	  history.go(-1);
-                      }); 
+                      $("#picFile").on("filebatchuploadsuccess", function() {
+                          swal({title: '成功',
+                              text: data.errMsg,
+                              type: 'success',
+                              confirmButtonText: '确定',
+                          },function(){
+                              history.go(-1);
+                          });
+                      });
                   }else{
                   	swal("失败", data.errMsg, "error"); 
                   }

@@ -23,7 +23,7 @@
 	
 	<%@ include file="common/importCss.jsp"%>
     <%@ include file="common/importJs.jsp"%>
-    <script src="${ctx}/assets/users/js/trashCanAdd.js" type="text/javascript"></script>
+    <script src="${ctx}/assets/users/js/wxTrashCanAdd.js" type="text/javascript"></script>
 </head>
 <!-- END HEAD -->
 

@@ -80,10 +80,10 @@
                                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 700px;">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
-                                            <input type="text" class="form-control ui-com" id="code" name="address" placeholder="请输入编号">
+                                            <input type="text" class="form-control ui-com" id="code" name="code" placeholder="请输入编号">
                                         </div>
                                         <div class="col-md-6 col-sm-6 text-right">
-                                            <button class="btn default" onclick="getlist()"><i class=" fa fa-search"></i> 查询 </button>
+                                            <button class="btn default" onclick="initTable()"><i class=" fa fa-search"></i> 查询 </button>
                                         </div>
                                     </div>
                                     <br>

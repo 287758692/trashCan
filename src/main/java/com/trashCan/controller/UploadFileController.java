@@ -1,6 +1,5 @@
 package com.trashCan.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.trashCan.annotation.SystemControllerLog;
 import com.trashCan.model.Trashcanmaster;
@@ -17,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -72,7 +70,7 @@ public class UploadFileController {
             	//图片路径
             	UsersConfigUtils config = new UsersConfigUtils();
     			String path = config.GetUsersConfig("USER-IMG-PATH");
-				String name = sdf.format(d);
+				String name = sdf.format(d)+String.valueOf(i);
 				String fileNameAll = name+fileName.substring(fileName.lastIndexOf("."));
             	logger.info(path);
             	File targetFile = new File(path, fileNameAll);  

@@ -81,10 +81,12 @@ public class TrashcanmasterController {
 	public @ResponseBody
 	Object trashCanList(HttpServletRequest request) throws IOException {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
+		int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		String code = request.getParameter("code");
-		resultMap = trashcanmasterService.getList("",code);
+		resultMap = trashcanmasterService.getPageList(pageNumber,pageSize,code);
 		String jsonString = objectMapper.writeValueAsString(resultMap.get("rows"));
-		String json = "{\"rows\":" + jsonString + "}";
+		String json = "{\"total\":" + resultMap.get("total") + ",\"rows\":" + jsonString + "}";
 		log.info("json:"+json);
 		return json;
 	}
